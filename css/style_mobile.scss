@@ -1,0 +1,299 @@
+//初始化样式
+$baseFontSize:12;
+$baseWidth:750;
+@function px2rem($px) {
+    @return ($px/$baseFontSize/2) * 1rem;
+}
+
+//设置百分比
+@function percent($val) {
+    @return ($val/$baseWidth)*100%;
+}
+
+//@mixin  淘宝布局方式
+@mixin font-dpr($font-size) {
+    font-size: $font-size/2 * 1px;
+    [data-dpr="2"] & {
+        font-size: $font-size/2 * 2 * 1px;
+    }
+    [data-dpr="3"] & {
+        font-size: $font-size/2 * 3 * 1px;
+    }
+    @media screen and (min-width: 768px) {
+        .ipad * {
+            font-size: $font-size*1px!important;
+        }
+    }
+}
+
+@mixin transition($amount) {
+    transition: $amount;
+    -moz-transition: $amount;
+    -webkit-transition: $amount;
+    -o-transition: $amount;
+    -ms-transition: $amount;
+}
+
+@mixin animation($amount) {
+    animation: $amount;
+    -webkit-animation: $amount;
+    -moz-animation: $amount;
+    -o-animation: $amount;
+    -ms-animation: $amount;
+}
+
+@mixin transform($amount) {
+    transform: $amount;
+    -webkit-transform: $amount;
+    -moz-transform: $amount;
+    -o-transform: $amount;
+    -ms-transform: $amount;
+}
+
+@mixin transform-origin($amount) {
+    transform-origin: $amount;
+    -webkit-transform-origin: $amount;
+    -moz-transform-origin: $amount;
+    -o-transform-origin: $amount;
+    -ms-transform-origin: $amount;
+}
+
+@mixin border-radius($amount) {
+    border-radius: $amount;
+    -webkit-border-radius: $amount;
+    -moz-border-radius: $amount;
+}
+
+@mixin box-shadow($amount) {
+    box-shadow: $amount;
+    -webkit-box-shadow: $amount;
+    -moz-box-shadow: $amount;
+    -o-box-shadow: $amount;
+    -ms-box-shadow: $amount;
+}
+
+@mixin togray {
+    -webkit-filter: grayscale(1);
+    -moz-filter: grayscale(1);
+    -ms-filter: grayscale(1);
+    -o-filter: grayscale(1);
+    filter: grayscale(1);
+    filter: gray;
+}
+
+@mixin togray-h {
+    -webkit-filter: grayscale(0);
+    -moz-filter: grayscale(0);
+    -ms-filter: grayscale(0);
+    -o-filter: grayscale(0);
+    filter: grayscale(0);
+}
+
+@mixin ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin m-touch {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+@mixin smoothing {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin appearance {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+* {
+    tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    -ms-tap-highlight-color: transparent;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display: block;}
+html{font-size: 62.5%;}
+body{line-height: 1.5; font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;}
+ol,li,ul{list-style: none;}
+html{-webkit-text-size-adjust: 100%; -webkit-text-size-adjust: none;}
+a,div,header,span{-webkit-tap-highlight-color: rgba(255, 255, 255, 0);}
+blockquote,q{quotes: none;}
+blockquote:after,
+blockquote:before,
+q:after,
+q:before{content: ''; content: none;}
+table{border-collapse: collapse; border-spacing: 0;}
+input,
+textarea{outline: 0; resize: none;}
+input{vertical-align:middle;}
+img{vertical-align: middle;}
+a{text-decoration: none; background: transparent; -webkit-tap-highlight-color: transparent;outline:none;}
+a:link{color:#fff;}
+a:visited{color:#fff;}
+a:hover{color:#fff;}
+a:active{color:#fff;}
+.clearfix::before{content: ' '; display: table;}
+.clearfix::after{content: ' '; display: table; clear: both;}
+.fr{float: left;}
+.fl{float: right;}
+@media screen and (min-width:321px) and (max-width:375px){html{font-size:11px}}
+@media screen and (min-width:376px) and (max-width:414px){html{font-size:12px}} 
+@media screen and (min-width:415px) and (max-width:639px){html{font-size:15px}} 
+@media screen and (min-width:640px) and (max-width:719px){html{font-size:20px}} 
+@media screen and (min-width:720px) and (max-width:749px){html{font-size:22.5px}} 
+@media screen and (min-width:750px) and (max-width:799px){html{font-size:23.5px}} 
+@media screen and (min-width:800px){html{font-size:25px}}
+
+// =========================以上为初始化样式=========================
+
+.main{
+    img{
+        width: 100%;
+    }
+}
+.content{
+    padding:0 percent(48);
+    background-color: #d60934;
+}
+.title{
+    font-size:px2rem(48);
+    font-weight: bold;
+    text-align: center;
+    color:#ffff00;
+    .m-title{
+        padding-bottom:px2rem(25);
+        background: url('../images/m_title-bg.png') no-repeat bottom center;
+        background-size:100%;
+    }
+    .s-title{
+        font-size: px2rem(30);
+        color:#f5d475;
+    }
+}
+.ticket{
+    width:80%;
+    margin:0 auto;
+    padding-bottom:px2rem(60);
+    img{
+        margin-top:px2rem(60);
+    }
+}
+.rule{
+    margin-top:px2rem(70);
+    .rule-title{
+        position: relative;
+        font-size:px2rem(48);
+        color:#ffff00;
+        text-align: center;
+    }
+    .decor{
+        width: px2rem(180);
+        height: px2rem(4);
+    }
+    .l-decor{
+        position: absolute;
+        top:50%;
+        left:0%;
+        background-image: -webkit-linear-gradient(left,transparent, rgba(255,255,255,.2),rgba(255,255,255,.5),rgba(255,255,255,.8),#ffff00 50%);
+        @include transition(translateY(-50%));
+    }
+    .r-decor{
+        position: absolute;
+        top:50%;
+        right: 0%;
+        background-image: -webkit-linear-gradient(right,transparent, rgba(255,255,255,.2),rgba(255,255,255,.5),rgba(255,255,255,.8),#ffff00 50%);
+        @include transition(translateY(-50%));
+    }
+    .l-decor::after{
+        content: '';
+        position: absolute;
+        top:50%;
+        right:0;
+        width: px2rem(20);
+        height: px2rem(20);
+        background: #ffff00;
+        transform: translateY(-50%) rotate(45deg);
+    }
+    .r-decor::before{
+        content: '';
+        position: absolute;
+        top:50%;
+        left:0;
+        width: px2rem(20);
+        height: px2rem(20);
+        background: #ffff00;
+        -webkit-transform: translateY(-50%) rotate(45deg);
+        -ms-transform: translateY(-50%) rotate(45deg);
+        -o-transform: translateY(-50%) rotate(45deg);
+        -moz-transform: translateY(-50%) rotate(45deg);
+        transform: translateY(-50%) rotate(45deg);
+    }
+    .rule-list{
+        padding:px2rem(70) 0;
+        font-size:px2rem(30);
+        color:#fff;
+        li{
+            margin-bottom:px2rem(28);
+            text-align: justify;
+        }
+    }
+    .rule-table table{
+        table-layout: fixed;
+        width:100%;
+        text-align: center;
+        background: #fff;
+        
+        border-bottom:px2rem(6) solid #ecb81c;
+        thead{
+            font-size:px2rem(28);
+            color:#ecb81c;
+            border-top:px2rem(6) solid #ecb81c;
+            border-bottom:px2rem(6) solid #ecb81c;
+        }
+        thead th:nth-child(3n){
+            width:40%;
+        }
+        thead th:last-child{
+            border-right:none;
+        }
+        tbody{
+            color:#333;
+        }
+        tbody tr:first-child td:last-child{
+            border-right:none;
+        }
+        td p{
+            width: 10px;
+            margin: 0 auto;
+        }
+    }
+    .rule-table table th,.rule-table table td{
+        padding:px2rem(20) 0;
+        vertical-align: middle;
+        border-right:px2rem(2) solid #e4e4e4;
+        border-bottom:px2rem(2) solid #e4e4e4;
+    }
+}
+.warn{
+    padding:px2rem(50) 0 px2rem(100);
+    font-size:px2rem(24);
+    text-align: center;
+    color:rgba(255,255,255,.21);
+}
